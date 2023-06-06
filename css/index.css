@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'SuperMario256';
+    src: url('../font/SuperMario256.ttf') format('truetype');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: SuperMario256;
+}
+
+body{
+    background-color: #0c0c0c;
+}
+
+.game-board {
+    position:relative;
+    overflow: hidden;
+    width:100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(51, 143, 33);
+    background: linear-gradient(#87ceeb, #e0f6ff);
+    margin: 0 auto;
+}
+.score-div{
+    display:flex;
+    position:absolute;
+    margin-top: 1%;
+    margin-left: 1%;
+    color: #fff;
+}
+.points{
+    font-size: x-large;
+    text-shadow: 1px 3px 1px #000;
+}
+.game-over-text{
+    position: absolute;
+    margin-top:98px;
+    margin-left:40%;
+    width:300px;
+    visibility: hidden;
+}
+.retry{
+    position:absolute;
+    visibility: hidden;
+    background-color: rgb(223, 223, 73);
+    color: white;
+    font-size: large;
+    font-weight: 800;
+    border: solid 3px #000;
+    box-shadow: 3px 2px 1px #000;
+    border-radius: 5px;
+    width: 225px;
+    left:42.5%;
+    height: 35px;
+    top:250px;
+}
+.retry:hover{
+    background-color: rgb(114, 163, 114);
+}
+.show{
+    visibility: visible;
+    animation: gameover-text 2s;
+}
+
+@keyframes gameover-text{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+/*mario animations*/
+.mario{
+    position: absolute;
+    width: 150px;
+    bottom: 0;
+}
+.jump{
+    animation: mario-jump 500ms ease-out;
+}
+
+/*pipe animations*/
+.pipe{
+    position: absolute;
+    bottom: 0;
+    right: -80px;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+.clouds {
+    position: absolute;
+    width:550px;
+    animation: clouds-animation 15s infinite linear;
+}
+
+@keyframes clouds-animation{
+    from{
+        right: -550px;
+    }
+    to{
+        right:100%;
+    }
+}
+
+@keyframes pipe-animation {
+    from{
+        right:0;
+    }
+    to{
+        right:100%;
+    }
+}
+
+@keyframes mario-jump{
+    0% {
+        bottom: 0;
+    }
+    40%{
+        bottom: 180px;
+    }
+    50%{
+        bottom: 180px;
+    }
+    60%{
+        bottom: 180px;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+@keyframes game-over{
+    0%{
+        width:75px;
+    }
+    100%{
+        width:0px;
+    }
+}
